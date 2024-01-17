@@ -1,0 +1,37 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/room/tabs/things"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New thing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid class="grid">
+    <ion-row>
+      <ion-col offset-sm="4" size-sm="6" offset-sm="3">
+        <ion-card class="ion-padding">
+          <ion-card-header>
+            <ion-card-title>Add new thing</ion-card-title>
+          </ion-card-header>
+
+          <ng-container [formGroup]="form">
+            <app-custom-form-control [label]="'Name'" [inputClass]="'dark'"  [formControlName]="'name'" [type]="'text'" [placeholder]="'Name'"></app-custom-form-control>
+            <br>
+            <app-custom-form-control [label]="'Description'" [inputClass]="'dark'"  [formControlName]="'description'" [type]="'text'" [placeholder]="'Description'"></app-custom-form-control>
+            <br>
+            <app-custom-form-control [label]="'Length'" [inputClass]="'dark'"  [formControlName]="'length'" [type]="'text'" [placeholder]="'Length (cm)'"></app-custom-form-control>
+            <br>
+            <app-custom-form-control [label]="'Width'" [inputClass]="'dark'"  [formControlName]="'width'" [type]="'text'" [placeholder]="'Width (cm)'"></app-custom-form-control>
+            <br>
+            <app-custom-form-control [label]="'Height'" [inputClass]="'dark'"  [formControlName]="'height'" [type]="'text'" [placeholder]="'Height (cm)'"></app-custom-form-control>
+            <br>
+            <ion-button  [disabled]="!form.valid" (click)="addThing()" color="primary" expand="block">Confirm</ion-button>
+          </ng-container>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

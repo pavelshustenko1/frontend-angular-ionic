@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Things</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="things$ | async as things">
+  <ion-list [inset]="true">
+    <ion-item-sliding *ngFor="let thing of things">
+      <ion-item [button]="true" [detail]="false" (click)="putThing(thing)">
+        <ng-container *ngIf="!thing.isUsed">
+          <ion-label>
+            <h4>{{ thing.name }}</h4>
+            <p>{{ thing.description }}</p>
+          </ion-label>
+          <ion-note slot="end">{{ thing.capacity }} cm3</ion-note>
+        </ng-container>
+      </ion-item>
+      <ion-item-options>
+        <ion-item-option color="danger" (click)="onDelete(thing.id)">Delete</ion-item-option>
+      </ion-item-options>
+  </ion-item-sliding>
+    <br>
+    <ion-button (click)="addThing()" color="primary" expand="block">Add thing</ion-button>
+  </ion-list>
+</ng-container>
+</ion-content>

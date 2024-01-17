@@ -1,0 +1,9 @@
+<div class="form-section" fxLayout="column" fxLayoutGap="5px">
+    <div class="label {{ labelClass }}">{{ label }}<span *ngIf="mandatory" class="asterisk">*</span></div>
+
+    <select  [id]="formControlName" #field class="select {{ inputClass }}" [formControl]="control" [ngClass]="{'invalid': errorRequiredMsg || errorEmailMsg}">
+        <option value="" [disabled]="true">{{ initial }}</option>
+        <option *ngFor="let option of selectValues;" [value]="option.value">{{ option.key }}</option>
+        
+    </select>
+</div>

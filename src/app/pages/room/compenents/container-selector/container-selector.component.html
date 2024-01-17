@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ thing?.name }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center" padding>
+  <ion-text color="primary">
+    <h2>Select container to put the thing:</h2>
+  </ion-text>
+  <ion-list>
+    <ion-item *ngFor="let container of containers | async" (click)="selectContainer(container.id)">
+      <ion-icon aria-hidden="true" name="cube-outline" slot="start"></ion-icon>
+      <ion-label>{{ container.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

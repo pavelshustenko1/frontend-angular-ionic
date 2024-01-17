@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Authentication</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="grid">
+    <ion-row>
+      <ion-col offset-sm="4" size-sm="6" offset-sm="3">
+        <ion-card class="ion-padding">
+          <ion-card-header>
+            <ion-card-title>Entrance to a room</ion-card-title>
+          </ion-card-header>
+
+          <ng-container [formGroup]="authForm">
+            <app-custom-form-control [label]="'Email'" [inputClass]="'dark'"  [formControlName]="'email'" [type]="'email'" [placeholder]="'Email'"></app-custom-form-control>
+            <br>
+            <app-custom-form-control [label]="'Password'" [inputClass]="'dark'"  [formControlName]="'password'" [type]="'password'" [placeholder]="'Password'"></app-custom-form-control>
+            <br>
+            <ion-button  [disabled]="!authForm.valid" (click)="login()" color="primary" expand="block">Login</ion-button>
+          </ng-container>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

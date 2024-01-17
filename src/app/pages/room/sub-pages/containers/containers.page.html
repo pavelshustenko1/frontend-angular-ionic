@@ -1,0 +1,31 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Containers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="containers$ | async as containers">
+  <ion-list [inset]="true">
+    <ion-item-sliding *ngFor="let container of containers" >
+      <ion-item [button]="true" [detail]="container.thingsInside.length > 0" (click)="showContainer(container)">
+        <ion-label>
+          <h4>{{ container.name }}</h4>
+          <p>{{ container.description }}</p>
+          <p *ngIf="container.thingsInside.length === 0">Empty</p>
+        </ion-label>
+        <ion-note slot="end">{{ container.availableCapacity }} cm3</ion-note>
+      </ion-item>
+      <ion-item-options>
+        <ion-item-option color="danger" (click)="onDelete(container.id)">Delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    <br>
+    <ion-button (click)="addContainer()" color="primary" expand="block">Add container</ion-button>
+  </ion-list>
+</ng-container>
+</ion-content>

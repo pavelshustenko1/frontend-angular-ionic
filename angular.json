@@ -31,7 +31,11 @@
                 "output": "./svg"
               }
             ],
-            "styles": ["src/theme/variables.scss", "src/global.scss"],
+            "styles": [
+              "src/theme/variables.scss",
+              "src/global.scss",
+              "src/styles/index.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -72,15 +76,15 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "./proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "app:build:production"
             },
             "development": {
               "buildTarget": "app:build:development"
-            },
-            "ci": {
-              "progress": false
             }
           },
           "defaultConfiguration": "development"
@@ -124,19 +128,14 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@ionic/angular-toolkit"
-    ]
+    "schematicCollections": ["@ionic/angular-toolkit", "@ngrx/schematics"]
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

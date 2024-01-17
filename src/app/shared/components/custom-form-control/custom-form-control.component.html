@@ -1,0 +1,9 @@
+<div class="form-section" fxLayout="column" fxLayoutGap="5px">
+    <div class="label {{ labelClass }}">{{ label }}<span *ngIf="mandatory" class="asterisk">*</span></div>
+
+  <small *ngIf="errorRequiredMsg">{{ errorRequiredMsg }}</small>
+  <small *ngIf="errorEmailMsg">{{ errorEmailMsg }}</small>
+
+  <input [id]="formControlName" #field autocomplete="off"  class="form-input  {{ inputClass }}" [ngClass]="{'invalid': errorRequiredMsg || errorEmailMsg }" type="{{ type }}" [formControl]="control" [placeholder]="placeholder"/>
+
+</div>

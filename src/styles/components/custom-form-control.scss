@@ -1,0 +1,47 @@
+app-custom-form-control {
+ 
+    .form-section {
+        width: 100%;
+        font-family: 'Kanit', sans-serif;
+    
+        // inputs
+        .form-input {
+            border-radius: 10px;
+            border: none;
+            height: 49px;
+            padding: 0 15px;
+            margin-top: 5px;   
+            width: 100%;         
+        }
+
+        .light {
+            background: #EDEBEB;
+            color: #504F4F;
+        }
+
+        .dark {
+            background: rgba(237, 235, 235, 0.1);
+            color: #EDEBEB;
+        }
+    
+        .label {
+            margin-bottom: 0 !important;
+        }
+    
+        .invalid {
+            border: 1px solid #FF5F5F !important;
+            background: #EDEBEB;
+            color: #FF5F5F;
+        }
+    
+        .focused {
+            border: 2px solid #FF9A01
+        }
+    
+        small {
+            color: #FF5F5F;
+        }
+
+        
+    }
+}
