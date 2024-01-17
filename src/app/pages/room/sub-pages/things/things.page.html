@@ -12,8 +12,8 @@
   <ng-container *ngIf="things$ | async as things">
   <ion-list [inset]="true">
     <ion-item-sliding *ngFor="let thing of things">
-      <ion-item [button]="true" [detail]="false" (click)="putThing(thing)">
-        <ng-container *ngIf="!thing.isUsed">
+      <ion-item *ngIf="!thing.isUsed" [button]="true" [detail]="false" (click)="putThing(thing)">
+        <ng-container >
           <ion-label>
             <h4>{{ thing.name }}</h4>
             <p>{{ thing.description }}</p>
